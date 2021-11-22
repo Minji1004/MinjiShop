@@ -1,0 +1,65 @@
+{{>layout/header}}
+
+    <form role="form" action="/items/new" method="post">
+        <div class="form-group">
+            <label for="name">상품명</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="이름을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label for="price">가격</label>
+            <input type="number" name="price" class="form-control" id="price" placeholder="가격을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label for="stockQuantity">수량</label>
+            <input type="number" name="stockQuantity" class="form-control" id="stockQuantity" placeholder="수량을 입력하세요">
+        </div>
+        <div class="form-group">
+            <label for="stockQuantity">상품 종류</label>
+            <select name="itemType" class="form-control" id="itemType">
+                <option value="A">Album</option>
+                <option value="B">Book</option>
+                <option value="M">Movie</option>
+            </select>
+        </div>
+
+        <div id="div-album">
+            <div class="form-group">
+                <label for="author">아티스트</label>
+                <input type="text" name="artist" class="form-control" id="artist" placeholder="아티스트를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="author">ETC</label>
+                <input type="text" name="etc" class="form-control" id="etc" placeholder="etc를 입력하세요">
+            </div>
+        </div>
+
+        <div id="div-book">
+            <div class="form-group">
+                <label for="author">저자</label>
+                <input type="text" name="author" class="form-control" id="author" placeholder="저자를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" class="form-control" id="isbn" placeholder="ISBN을 입력하세요">
+            </div>
+        </div>
+
+        <div id="div-movie">
+            <div class="form-group">
+                <label for="author">감독</label>
+                <input type="text" name="director" class="form-control" id="director" placeholder="감독을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="isbn">배우</label>
+                <input type="text" name="actor" class="form-control" id="actor" placeholder="배우를 입력하세요">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <br/>
+
+
+<script src="/js/app/itemForm.js"></script>
+
+{{>layout/footer}}
