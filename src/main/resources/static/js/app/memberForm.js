@@ -22,10 +22,10 @@ var main = {
 
     edit : function(){
        //Button 변경
-       $("#btn-edit").addClass("invisible");
-       $("#btn-cancel").removeClass("invisible");
-       $("#btn-update").removeClass("invisible");
-       $("#btn-delete").removeClass("invisible");
+       $("#btn-edit").css("display", "none");
+       $("#btn-cancel").css("display", "");
+       $("#btn-update").css("display", "");
+       $("#btn-delete").css("display", "");
 
        //address readonly 속성 제거
        $('#city').prop('readonly', false);
