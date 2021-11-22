@@ -39,11 +39,11 @@ public class MemberController {
     }
 
     @GetMapping("/members/searchMember/{memberId}")
-    public String memberList(@PathVariable("memberId") Long id, Model model) {
+    public String searchMember(@PathVariable("memberId") Long id, Model model) {
 
         MemberDTO memberDTO = memberService.findMemberById(id);
         model.addAttribute("member", memberDTO);
 
-        return "members/updateMemberForm";
+        return "members/memberForm";
     }
 }

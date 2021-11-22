@@ -3,8 +3,6 @@ package minji.project.JpaPractice.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import minji.project.JpaPractice.domain.Address;
-import minji.project.JpaPractice.web.dto.MemberDTO;
 
 import javax.persistence.*;
 
@@ -25,10 +23,14 @@ public class Member extends BaseTimeEntity {
     @Embedded
     private Address address;
 
+    //Builder 메서드를 만들어준다.
     @Builder
     public Member(String name, Address address) {
         this.name = name;
         this.address = address;
     }
 
+    public void updateAddress(Address address) {
+        this.address = address;
+    }
 }

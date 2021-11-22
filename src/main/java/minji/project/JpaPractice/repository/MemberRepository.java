@@ -27,4 +27,8 @@ public class MemberRepository {
     public Member findOneById(Long id) {
         return em.find(Member.class, id);
     }
+
+    public void deleteMember(Member member) {
+        em.remove(member);
+    }
 }

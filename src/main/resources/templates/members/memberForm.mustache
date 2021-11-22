@@ -1,0 +1,35 @@
+{{>layout/header}}
+
+<form role="form">
+
+    <!-- id -->
+    <input type="hidden" name="id" id="id" value="{{member.id}}">
+
+    <div class="form-group">
+        <label for="inputName">이름</label>
+        <input type="text" name="name" class="form-control" id="inputName" value="{{member.name}}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="city">도시</label>
+        <input type="text" name="city" class="form-control" id="city" value="{{#member.city}}{{member.city}}{{/member.city}}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="street">거리</label>
+        <input type="text" name="street" class="form-control" id="street" value="{{#member.street}}{{member.street}}{{/member.street}}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="zipcode">우편번호</label>
+        <input type="text" name="zipcode" class="form-control" id="zipcode" value="{{#member.zipcode}}{{member.zipcode}}{{/member.zipcode}}" readonly>
+    </div>
+
+    <button type="button" class="btn btn-default" id="btn-edit">Edit</button>
+    <button type="button" class="btn btn-default invisible " id="btn-cancel">Cancel</button>
+    <button type="button" class="btn btn-primary invisible " id="btn-update">Update</button>
+    <button type="button" class="btn btn-danger invisible " id="btn-delete">Delete</button>
+
+</form>
+<br/>
+
+<script src="/js/app/memberForm.js"></script>
+
+{{>layout/footer}}
