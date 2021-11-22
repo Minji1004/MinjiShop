@@ -1,5 +1,6 @@
 package minji.project.JpaPractice.domain.item;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import minji.project.JpaPractice.domain.BaseTimeEntity;
@@ -21,5 +22,11 @@ public class Item extends BaseTimeEntity {
     private String name;
     private int price;
     private int stockQuantity;
+
+    public Item(String name, int price, int stockQuantity) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 
 }
