@@ -1,0 +1,28 @@
+{{>layout/header}}
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>순서</th>
+                <th>이름</th>
+                <th>도시</th>
+                <th>주소</th>
+                <th>우편번호</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#members}} <!-- members 라는 리스트 순회 -->
+                <tr>
+                    <td><a href="/members/searchMember/{{id}}">{{id}}</a></td>
+                    <td>{{name}}</td>
+                    <td>{{city}}</td>
+                    <td>{{street}}</td>
+                    <td>{{zipcode}}</td>
+                </tr>
+            {{/members}}
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
+{{>layout/footer}}
