@@ -31,9 +31,6 @@ var itemMain = {
                 $("#div-movie").css("display", "block");
                 break;
        }
-
-
-
     }
 
 }

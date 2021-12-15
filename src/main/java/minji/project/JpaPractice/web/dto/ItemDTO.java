@@ -32,6 +32,29 @@ public class ItemDTO {
     private String director;
     private String actor;
 
+    public ItemDTO(Item item) {
+        this.id = item.getId();
+        this.name = item.getName();
+        this.price = item.getPrice();
+        this.stockQuantity = item.getStockQuantity();
+
+        if(item instanceof Album) {
+            this.itemType = "A";
+            this.artist = ((Album) item).getArtist();
+            this.etc = ((Album) item).getEtc();
+        }else if(item instanceof Book) {
+            this.itemType = "B";
+            this.itemType = "B";
+            this.author = ((Book) item).getAuthor();
+            this.isbn = ((Book) item).getIsbn();
+        }else if(item instanceof Movie) {
+            this.itemType = "M";
+            this.director = ((Movie) item).getDirector();
+            this.actor = ((Movie) item).getActor();
+        }
+    }
+
+
     public Item toItemEntity() {
 
         ItemType itemType = ItemType.fromString(this.itemType);

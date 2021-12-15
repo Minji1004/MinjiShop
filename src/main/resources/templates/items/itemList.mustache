@@ -11,18 +11,18 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody><!--
-            <c:forEach items="${items}" var="item">
-                <tr>
-                    <td>${item.id}</td>
-                    <td>${item.name}</td>
-                    <td>${item.price}</td>
-                    <td>${item.stockQuantity}</td>
-                    <td>
-                        <a href="/items/${item.id}/edit" class="btn btn-primary" role="button">수정</a>
-                    </td>
-                </tr>
-            </c:forEach>-->
+            <tbody>
+            {{#items}} <!-- members 라는 리스트 순회 -->
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{stockQuantity}}</td>
+                <td>
+                    <a href="/items/{{id}}/edit" class="btn btn-primary" role="button">수정</a>
+                </td>
+            </tr>
+            {{/items}}
             </tbody>
         </table>
     </div>

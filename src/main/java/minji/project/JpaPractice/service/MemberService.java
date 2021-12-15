@@ -36,7 +36,6 @@ public class MemberService {
 
     public MemberDTO findMemberById(Long id) {
         Member member = memberRepository.findOneById(id);
-
         return new MemberDTO(member);
     }
 

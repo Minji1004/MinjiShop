@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class ItemController {
@@ -27,6 +29,8 @@ public class ItemController {
 
     @GetMapping("/items")
     public String itemList(Model model) {
+        List<ItemDTO> items = itemService.findItems();
+        model.addAttribute("items", items);
         return "/items/itemList";
     }
 
