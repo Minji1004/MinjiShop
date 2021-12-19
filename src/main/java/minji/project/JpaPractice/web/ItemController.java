@@ -3,7 +3,6 @@ package minji.project.JpaPractice.web;
 import lombok.RequiredArgsConstructor;
 import minji.project.JpaPractice.service.ItemService;
 import minji.project.JpaPractice.web.dto.ItemDTO;
-import minji.project.JpaPractice.web.dto.MemberDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
