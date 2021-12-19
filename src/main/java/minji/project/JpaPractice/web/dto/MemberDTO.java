@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import minji.project.JpaPractice.domain.Address;
-import minji.project.JpaPractice.domain.Member;
+import minji.project.JpaPractice.domain.member.Member;
 
 @Getter
 @Setter

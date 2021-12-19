@@ -1,8 +1,10 @@
-package minji.project.JpaPractice.domain;
+package minji.project.JpaPractice.domain.member;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import minji.project.JpaPractice.domain.Address;
+import minji.project.JpaPractice.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 

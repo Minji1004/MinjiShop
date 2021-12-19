@@ -2,7 +2,7 @@ package minji.project.JpaPractice.service;
 
 import lombok.RequiredArgsConstructor;
 import minji.project.JpaPractice.domain.Address;
-import minji.project.JpaPractice.domain.Member;
+import minji.project.JpaPractice.domain.member.Member;
 import minji.project.JpaPractice.repository.MemberRepository;
 import minji.project.JpaPractice.web.dto.MemberDTO;
 import org.springframework.stereotype.Service;

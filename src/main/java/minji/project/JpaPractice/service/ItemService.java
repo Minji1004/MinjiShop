@@ -1,8 +1,6 @@
 package minji.project.JpaPractice.service;
 
 import lombok.RequiredArgsConstructor;
-import minji.project.JpaPractice.domain.Address;
-import minji.project.JpaPractice.domain.Member;
 import minji.project.JpaPractice.domain.item.Item;
 import minji.project.JpaPractice.repository.ItemRepository;
 import minji.project.JpaPractice.web.dto.ItemDTO;

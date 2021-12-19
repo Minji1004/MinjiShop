@@ -5,9 +5,7 @@ import minji.project.JpaPractice.service.MemberService;
 import minji.project.JpaPractice.web.dto.MemberDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,20 @@ public class MemberController {
         memberService.join(memberSaveRequestDTO);
         return "redirect:/";
     }
+
+    @PutMapping("/api/member/{id}")
+    @ResponseBody
+    public Long update(@PathVariable Long id, @RequestBody MemberDTO requestDto){
+        return memberService.update(id, requestDto);
+    }
+
+    @DeleteMapping("/api/member/{id}")
+    @ResponseBody
+    public Long delete(@PathVariable Long id){
+        memberService.delete(id);
+        return id;
+    }
+
 
     @GetMapping("/members")
     public String memberList(Model model) {

@@ -1,12 +1,10 @@
 package minji.project.JpaPractice.repository;
 
-import minji.project.JpaPractice.domain.Member;
-import minji.project.JpaPractice.web.dto.MemberDTO;
+import minji.project.JpaPractice.domain.member.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
