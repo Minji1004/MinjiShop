@@ -5,6 +5,7 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>상품 종류</th>
                 <th>상품명</th>
                 <th>가격</th>
                 <th>재고수량</th>
@@ -15,6 +16,7 @@
             {{#items}} <!-- members 라는 리스트 순회 -->
             <tr>
                 <td>{{id}}</td>
+                <td> {{itemTypeName}}</td>
                 <td>{{name}}</td>
                 <td>{{price}}</td>
                 <td>{{stockQuantity}}</td>

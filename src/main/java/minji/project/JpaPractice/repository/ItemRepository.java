@@ -14,12 +14,24 @@ public class ItemRepository {
     EntityManager em;
 
 
-    public Long registerItem(Item item) {
-        em.persist(item);
+    public Long saveItem(Item item) {
+        if(item.getId() == null)
+            em.persist(item);
+        else
+            em.merge(item);
+
         return item.getId();
     }
 
     public List<Item> findAll() {
         return em.createQuery("select m from Item m", Item.class).getResultList();
+    }
+
+    public Item findItemById(Long id) {
+        return em.find(Item.class, id);
+    }
+
+    public void deleteItem(Item item) {
+        em.remove(item);
     }
 }

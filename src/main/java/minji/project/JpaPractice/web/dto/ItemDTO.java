@@ -19,6 +19,7 @@ public class ItemDTO {
     private int stockQuantity;
 
     private String itemType;
+    private String itemTypeName;
 
     //Album
     private String artist;
@@ -44,7 +45,7 @@ public class ItemDTO {
             this.etc = ((Album) item).getEtc();
         }else if(item instanceof Book) {
             this.itemType = "B";
-            this.itemType = "B";
+
             this.author = ((Book) item).getAuthor();
             this.isbn = ((Book) item).getIsbn();
         }else if(item instanceof Movie) {
@@ -52,6 +53,8 @@ public class ItemDTO {
             this.director = ((Movie) item).getDirector();
             this.actor = ((Movie) item).getActor();
         }
+
+        this.itemTypeName = ItemType.fromString(this.itemType).name();
     }
 
 

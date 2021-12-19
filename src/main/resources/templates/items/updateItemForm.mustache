@@ -1,0 +1,70 @@
+{{>layout/header}}
+
+    <form role="form" action="/items/new" method="post">
+
+        <!-- id -->
+        <input type="hidden" name="id" id="id" value="{{item.id}}">
+
+        <div class="form-group">
+            <label for="name">상품명</label>
+            <input type="text" name="name" class="form-control" id="name" value="{{item.name}}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="price">가격</label>
+            <input type="number" name="price" class="form-control" id="price" value="{{item.price}}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="stockQuantity">수량</label>
+            <input type="number" name="stockQuantity" class="form-control" id="stockQuantity" value="{{item.stockQuantity}}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="itemTypeName">상품 종류</label>
+            <input type="text" name="itemTypeName" class="form-control" id="itemTypeName" value="{{item.itemTypeName}}" readonly>
+            <input type="hidden" name="itemType" class="form-control" id="itemType" value="{{item.itemType}}">
+        </div>
+
+        <div id="div-album">
+            <div class="form-group">
+                <label for="author">아티스트</label>
+                <input type="text" name="artist" class="form-control" id="artist" value="{{#item.artist}}{{item.artist}}{{/item.artist}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="author">ETC</label>
+                <input type="text" name="etc" class="form-control" id="etc" value="{{#item.etc}}{{item.etc}}{{/item.etc}}" readonly>
+            </div>
+        </div>
+
+        <div id="div-book">
+            <div class="form-group">
+                <label for="author">저자</label>
+                <input type="text" name="author" class="form-control" id="author" value="{{#item.author}}{{item.author}}{{/item.author}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" class="form-control" id="isbn" value="{{#item.isbn}}{{item.isbn}}{{/item.isbn}}" readonly>
+            </div>
+        </div>
+
+        <div id="div-movie">
+            <div class="form-group">
+                <label for="author">감독</label>
+                <input type="text" name="director" class="form-control" id="director" value="{{#item.director}}{{item.director}}{{/item.director}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="isbn">배우</label>
+                <input type="text" name="actor" class="form-control" id="actor" value="{{#item.actor}}{{item.actor}}{{/item.actor}}" readonly>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-default" id="btn-edit">Edit</button>
+        <button type="button" class="btn btn-default" style="display:none;" id="btn-cancel">Cancel</button>
+        <button type="button" class="btn btn-primary" style="display:none;" id="btn-update">Update</button>
+        <button type="button" class="btn btn-danger" style="display:none;" id="btn-delete">Delete</button>
+
+    </form>
+    <br/>
+
+
+<script src="/js/app/itemForm.js"></script>
+
+{{>layout/footer}}

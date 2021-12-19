@@ -29,4 +29,8 @@ public class Item extends BaseTimeEntity {
         this.stockQuantity = stockQuantity;
     }
 
+    public void setItemId(Long id) {
+        this.id = id;
+    }
+
 }
