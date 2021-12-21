@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import minji.project.JpaPractice.domain.BaseTimeEntity;
+import minji.project.JpaPractice.exception.NotEnoughStockException;
 
 import javax.persistence.*;
 
@@ -31,6 +32,15 @@ public class Item extends BaseTimeEntity {
 
     public void setItemId(Long id) {
         this.id = id;
+    }
+
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+
+        this.stockQuantity = restStock;
     }
 
 }
