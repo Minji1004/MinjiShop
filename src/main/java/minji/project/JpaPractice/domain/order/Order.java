@@ -66,5 +66,17 @@ public class Order {
         orderItem.setOrder(this); //연관관계 편의 메소드.
     }
 
+    public void cancelOrder() {
+
+        if(delivery.getDeliveryStatus() == DeliveryStatus.COMP) {
+            throw new RuntimeException("이미 배송완료된 상품은 취소가 불가능합니다.");
+        }
+
+        this.status = OrderStatus.CANCEL;
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
 
 }

@@ -43,4 +43,8 @@ public class Item extends BaseTimeEntity {
         this.stockQuantity = restStock;
     }
 
+    public void addStock(int count) {
+        this.stockQuantity += count;
+    }
+
 }

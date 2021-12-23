@@ -1,11 +1,13 @@
 package minji.project.JpaPractice.domain.order;
 
+import lombok.Getter;
 import lombok.Setter;
 import minji.project.JpaPractice.domain.item.Item;
 
 import javax.persistence.*;
 
 
+@Getter
 @Entity
 @Table(name = "ORDER_ITEM")
 public class OrderItem {
@@ -43,4 +45,11 @@ public class OrderItem {
         return orderItem;
     }
 
+    public int getTotalPrice(){
+        return orderPrice * count;
+    }
+
+    public void cancel() {
+        item.addStock(count);
+    }
 }

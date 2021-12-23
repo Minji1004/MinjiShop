@@ -13,6 +13,7 @@ import minji.project.JpaPractice.web.dto.OrderSearchDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -38,27 +39,36 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public String createOrder(OrderDTO orderDto) {
+    public String createOrder(Long memberId, Long itemId, int count) {
 
-        orderService.createOrder(orderDto);
+        orderService.createOrder(memberId, itemId, count);
 
         return "redirect:/";
     }
 
 
     @GetMapping("/orders")
-    public String orderList(Model model, OrderSearchDTO orderSearchDTO) {
+    public String orderList(Model model, OrderSearchDTO orderSearch) {
 
+        List<OrderDTO> orders = orderService.findOrders(orderSearch);
 
-
-
-        model.addAttribute("orderSearch", orderSearchDTO);
-        List<OptionElement> orderStatusList = OrderStatus.createOptionLists(orderSearchDTO.getOrderStatus());
+        model.addAttribute("orders", orders);
+        model.addAttribute("orderSearch", orderSearch);
+        List<OptionElement> orderStatusList = OrderStatus.createOptionLists(orderSearch.getOrderStatus());
         model.addAttribute("orderStatusList", orderStatusList);
-
 
         return "/order/orderList";
     }
+
+    @GetMapping("/orders/{orderId}/cancel")
+    public String cancelOrder(@PathVariable Long orderId) {
+
+        orderService.cancelOrder(orderId);
+
+        return "redirect:/orders";
+    }
+
+
 
 
 }
