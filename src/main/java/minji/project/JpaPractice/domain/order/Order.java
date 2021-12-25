@@ -72,10 +72,13 @@ public class Order {
             throw new RuntimeException("이미 배송완료된 상품은 취소가 불가능합니다.");
         }
 
+        delivery.cancel();
+
         this.status = OrderStatus.CANCEL;
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
+
     }
 
 

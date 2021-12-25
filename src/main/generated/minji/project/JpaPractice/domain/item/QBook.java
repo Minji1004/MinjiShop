@@ -24,6 +24,9 @@ public class QBook extends EntityPathBase<Book> {
     public final StringPath author = createString("author");
 
     //inherited
+    public final ListPath<minji.project.JpaPractice.domain.category.Category, minji.project.JpaPractice.domain.category.QCategory> categories = _super.categories;
+
+    //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     //inherited

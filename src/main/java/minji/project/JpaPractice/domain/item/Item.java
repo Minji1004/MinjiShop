@@ -1,12 +1,14 @@
 package minji.project.JpaPractice.domain.item;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import minji.project.JpaPractice.domain.BaseTimeEntity;
+import minji.project.JpaPractice.domain.category.Category;
 import minji.project.JpaPractice.exception.NotEnoughStockException;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -23,6 +25,9 @@ public class Item extends BaseTimeEntity {
     private String name;
     private int price;
     private int stockQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<Category>();
 
     public Item(String name, int price, int stockQuantity) {
         this.name = name;

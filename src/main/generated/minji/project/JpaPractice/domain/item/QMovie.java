@@ -24,6 +24,9 @@ public class QMovie extends EntityPathBase<Movie> {
     public final StringPath actor = createString("actor");
 
     //inherited
+    public final ListPath<minji.project.JpaPractice.domain.category.Category, minji.project.JpaPractice.domain.category.QCategory> categories = _super.categories;
+
+    //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     public final StringPath director = createString("director");

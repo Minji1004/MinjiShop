@@ -29,4 +29,8 @@ public class Delivery {
         this.address = address;
         deliveryStatus = DeliveryStatus.READY;
     }
+
+    public void cancel() {
+        this.deliveryStatus = DeliveryStatus.CANCEL;
+    }
 }

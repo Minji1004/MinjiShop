@@ -24,6 +24,9 @@ public class QAlbum extends EntityPathBase<Album> {
     public final StringPath artist = createString("artist");
 
     //inherited
+    public final ListPath<minji.project.JpaPractice.domain.category.Category, minji.project.JpaPractice.domain.category.QCategory> categories = _super.categories;
+
+    //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     public final StringPath etc = createString("etc");

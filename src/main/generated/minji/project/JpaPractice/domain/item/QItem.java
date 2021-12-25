@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -20,6 +21,8 @@ public class QItem extends EntityPathBase<Item> {
     public static final QItem item = new QItem("item");
 
     public final minji.project.JpaPractice.domain.QBaseTimeEntity _super = new minji.project.JpaPractice.domain.QBaseTimeEntity(this);
+
+    public final ListPath<minji.project.JpaPractice.domain.category.Category, minji.project.JpaPractice.domain.category.QCategory> categories = this.<minji.project.JpaPractice.domain.category.Category, minji.project.JpaPractice.domain.category.QCategory>createList("categories", minji.project.JpaPractice.domain.category.Category.class, minji.project.JpaPractice.domain.category.QCategory.class, PathInits.DIRECT2);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
