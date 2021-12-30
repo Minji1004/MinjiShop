@@ -19,7 +19,8 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public Long join(MemberDTO memberSaveRequestDTO) {
-       return memberRepository.save(memberSaveRequestDTO.toEntity());
+        Member member = memberRepository.save(memberSaveRequestDTO.toEntity());
+       return member.getId();
     }
 
     public List<MemberDTO> findMembers() {
@@ -34,14 +35,14 @@ public class MemberService {
         return members;
     }
 
-    public MemberDTO findMemberById(Long id) {
-        Member member = memberRepository.findOneById(id);
+    public MemberDTO findMemberById(Long id) throws Exception {
+        Member member = memberRepository.findById(id).orElseThrow(()-> new Exception("회원 정보가 없습니다."));
         return new MemberDTO(member);
     }
 
-    public Long update(Long id, MemberDTO requestDto) {
+    public Long update(Long id, MemberDTO requestDto) throws Exception {
         //JPA 컨텍스트에 있는 member를 조회해온다.
-        Member member = memberRepository.findOneById(id);
+        Member member = memberRepository.findById(id).orElseThrow(()-> new Exception("회원 정보가 없습니다."));
 
         //수정된 내용을 세팅한다.
         //JPA 컨텍스트 내 Entity 내용을 수정하면, flush할 때 변경사항을 감지해서 Update SQL Query를 만들어서 DB에 보낸다.
@@ -56,10 +57,10 @@ public class MemberService {
         return member.getId();
     }
 
-    public void delete(Long id) {
+    public void delete(Long id) throws Exception {
         //JPA 컨텍스트에 있는 member를 조회해온다.
-        Member member = memberRepository.findOneById(id);
+        Member member = memberRepository.findById(id).orElseThrow(()-> new Exception("회원 정보가 없습니다."));
         //엔티티 삭제
-        memberRepository.deleteMember(member);
+        memberRepository.delete(member);
     }
 }

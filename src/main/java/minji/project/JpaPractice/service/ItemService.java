@@ -18,13 +18,14 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     public Long registerItem(ItemDTO itemDTO) {
-        return itemRepository.saveItem(itemDTO.toItemEntity());
+      //  return itemRepository.saveItem(itemDTO.toItemEntity());
+        Item item = itemRepository.save(itemDTO.toItemEntity());
+        return item.getId();
     }
 
     public List<ItemDTO> findItems() {
 
         List<Item> itemList = itemRepository.findAll();
-
 
         //DTO로 변환
         List<ItemDTO> items = new ArrayList<ItemDTO>();
@@ -35,8 +36,9 @@ public class ItemService {
         return items;
     }
 
-    public ItemDTO findItemById(Long id) {
-        Item item = itemRepository.findItemById(id);
+    public ItemDTO findItemById(Long id) throws Exception {
+      //  Item item = itemRepository.findItemById(id);
+        Item item = itemRepository.findById(id).orElseThrow(()->new Exception("해당 아이템이 없습니다."));
         return new ItemDTO(item);
     }
 
@@ -44,12 +46,14 @@ public class ItemService {
         Item item = requestDto.toItemEntity();
         item.setItemId(id);
 
-        return itemRepository.saveItem(item);
+        item = itemRepository.save(item);
+
+        return item.getId();
     }
 
-    public void delete(Long id) {
-        Item item = itemRepository.findItemById(id);
+    public void delete(Long id) throws Exception {
+        Item item = itemRepository.findById(id).orElseThrow(()->new Exception("해당 아이템이 없습니다."));
         //엔티티 삭제
-        itemRepository.deleteItem(item);
+        itemRepository.delete(item);
     }
 }

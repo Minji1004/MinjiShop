@@ -30,13 +30,25 @@ public class MemberController {
     @PutMapping("/api/member/{id}")
     @ResponseBody
     public Long update(@PathVariable Long id, @RequestBody MemberDTO requestDto){
-        return memberService.update(id, requestDto);
+        Long response = null;
+        try {
+            response = memberService.update(id, requestDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response;
     }
 
     @DeleteMapping("/api/member/{id}")
     @ResponseBody
     public Long delete(@PathVariable Long id){
-        memberService.delete(id);
+
+        try {
+            memberService.delete(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return id;
     }
 
@@ -53,9 +65,12 @@ public class MemberController {
     @GetMapping("/members/searchMember/{memberId}")
     public String searchMember(@PathVariable("memberId") Long id, Model model) {
 
-        MemberDTO memberDTO = memberService.findMemberById(id);
-        model.addAttribute("member", memberDTO);
-
+        try {
+            MemberDTO memberDTO = memberService.findMemberById(id);
+            model.addAttribute("member", memberDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "members/memberForm";
     }
 }

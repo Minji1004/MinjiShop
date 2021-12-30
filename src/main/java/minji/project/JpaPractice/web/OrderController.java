@@ -41,7 +41,11 @@ public class OrderController {
     @PostMapping("/order")
     public String createOrder(Long memberId, Long itemId, int count) {
 
-        orderService.createOrder(memberId, itemId, count);
+        try {
+            orderService.createOrder(memberId, itemId, count);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return "redirect:/";
     }

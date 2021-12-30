@@ -36,8 +36,12 @@ public class ItemController {
     @GetMapping("/items/{id}/edit")
     public String updateItemForm(@PathVariable Long id, Model model) {
 
-        ItemDTO itemDTO = itemService.findItemById(id);
-        model.addAttribute("item", itemDTO);
+        try{
+            ItemDTO itemDTO = itemService.findItemById(id);
+            model.addAttribute("item", itemDTO);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return "/items/updateItemForm";
     }
@@ -51,7 +55,13 @@ public class ItemController {
     @DeleteMapping("/api/item/{id}")
     @ResponseBody
     public Long delete(@PathVariable Long id){
-        itemService.delete(id);
+
+        try {
+            itemService.delete(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return id;
     }
 

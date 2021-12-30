@@ -26,10 +26,10 @@ public class OrderService {
     private final ItemRepository itemRepository;
     private final OrderRepository orderRepository;
 
-    public Long createOrder(Long memberId, Long itemId, int count) {
+    public Long createOrder(Long memberId, Long itemId, int count) throws Exception {
 
-        Member member = memberRepository.findOneById(memberId);
-        Item item = itemRepository.findItemById(itemId);
+        Member member = memberRepository.findById(memberId).orElseThrow(()-> new Exception("회원 정보가 없습니다."));
+        Item item = itemRepository.findById(itemId).orElseThrow(()->new Exception("해당 아이템이 없습니다."));;
 
         //Delivery 생성
         Delivery delivery = new Delivery(member.getAddress());
