@@ -19,9 +19,18 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public Long join(MemberDTO memberSaveRequestDTO) {
+        validateDuplicateMember(memberSaveRequestDTO);
         Member member = memberRepository.save(memberSaveRequestDTO.toEntity());
        return member.getId();
     }
+
+    private void validateDuplicateMember(MemberDTO memberDTO) {
+        List<Member> findMembers = memberRepository.findByName(memberDTO.getName());
+        if (!findMembers.isEmpty()) {
+            throw new IllegalStateException("이미 존재하는 회원입니다.");
+        }
+    }
+
 
     public List<MemberDTO> findMembers() {
         List<Member> memberList = memberRepository.findAll();
